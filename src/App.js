@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Box, Button } from "@mui/material";
+import { Navbar, BeersList, BeerDetails, Progress } from "./components";
+import { useBeerStore } from "./stores/store";
 
-function App() {
+const App = () => {
+  const { setBeers, isLoading, setIsLoading } = useBeerStore((state) => ({
+    setBeers: state.setBeers,
+    isLoading: state.isLoading,
+    setIsLoading: state.setIsLoading,
+  }));
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const resp = await fetch("https://api.punkapi.com/v2/beers");
+        const data = await resp.json();
+        setBeers(data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Box sx={{ background: "white" }}>
+        <Navbar />
+        <Routes>
+          <Route path="/beer/:id" element={<BeerDetails />} />
+          <Route path="/" element={isLoading ? <Progress /> : <BeersList />} />
+        </Routes>
+      </Box>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
