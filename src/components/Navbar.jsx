@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import { Stack, Tooltip } from "@mui/material";
-import { Link, na } from "react-router-dom";
+import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import FavoriteIcon from "@mui/icons-material/Favorite";

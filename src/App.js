@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { Navbar, BeersList, BeerDetails, Progress } from "./components";
 import { useBeerStore } from "./stores/store";
 
 const App = () => {
-  const { setBeers, isLoading, setIsLoading } = useBeerStore((state) => ({    
+  const { setBeers, isLoading, setIsLoading } = useBeerStore((state) => ({
     setBeers: state.setBeers,
     isLoading: state.isLoading,
     setIsLoading: state.setIsLoading,
@@ -32,7 +32,7 @@ const App = () => {
       <Box sx={{ background: "white" }}>
         <Navbar />
         <Routes>
-          <Route path="/beer/:id" element={<BeerDetails  />} />
+          <Route path="/beer/:id" element={<BeerDetails />} />
           <Route path="/" element={isLoading ? <Progress /> : <BeersList />} />
         </Routes>
       </Box>

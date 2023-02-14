@@ -1,25 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { useBeerStore } from "../stores/store";
-import {
-  Typography,
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  IconButton,
-  Tooltip,
-} from "@mui/material";
+
+import { Typography, Box, Card, CardContent, CardMedia } from "@mui/material";
 import AddToFavoritesButton from "./AddToFavoritesButton";
 
 const BeerCard = (props) => {
   const { beer } = props;
-  const toggleFavorite = useBeerStore((state) => state.toggleFavorite);
-  const onFavoriteClick = () => toggleFavorite(beer.id);
 
   return (
-    
     <Card
       sx={{
         width: { xs: "100%", sm: "300px" },
@@ -29,7 +17,7 @@ const BeerCard = (props) => {
         backgroundColor: "rgb(245 245 245)",
         p: "20px 10px 10px 10px",
       }}
-    >     
+    >
       <Link to={`/beer/${beer.id}`}>
         <CardMedia
           component="img"
