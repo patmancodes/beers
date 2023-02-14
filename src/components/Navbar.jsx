@@ -11,9 +11,13 @@ function notificationsLabel(count) {
   return count === 0 ? "no Favorites" : `${count} Favorites`;
 }
 
-const Navbar = (props) => {  
+/**
+ * The main nav bar component for the app. Contains the logo and a link to show filtered beers.
+ */
+
+const Navbar = (props) => {
   const setFilter = useBeerStore((state) => state.setFilter);
-  const filteredBeerCount = useBeerStore((state) => state.filteredBeerCount());  
+  const filteredBeerCount = useBeerStore((state) => state.filteredBeerCount());
 
   return (
     <Stack
@@ -32,7 +36,11 @@ const Navbar = (props) => {
         borderBottom: "solid 1px rgba(0, 0, 0, 0.2)",
       }}
     >
-      <Link to="/" style={{ display: "flex", alignItems: "center" }} onClick={()=>setFilter(false)}>
+      <Link
+        to="/"
+        style={{ display: "flex", alignItems: "center" }}
+        onClick={() => setFilter(false)}
+      >
         <Logo />
       </Link>
       <Tooltip title="View Favorites " arrow placement="left">
@@ -40,7 +48,7 @@ const Navbar = (props) => {
           style={{ backgroundColor: "transparent" }}
           aria-label={notificationsLabel("5")}
           size="large"
-          onClick={()=>setFilter(true)}
+          onClick={() => setFilter(true)}
           component={Link}
           to="/"
         >

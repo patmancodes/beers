@@ -1,8 +1,15 @@
+
 import React from "react";
 import { Typography, Button } from "@mui/material";
 import { useBeerStore } from "../stores/store";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
+
+/**
+ * The negative view when there are no list items.
+ * Consider revising the dependancy of the beer store
+ *
+ */
 
 const NoItems = () => {
   const filteredToFavorites = useBeerStore((state) => state.filter);

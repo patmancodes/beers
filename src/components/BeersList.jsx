@@ -4,6 +4,11 @@ import { Stack } from "@mui/material";
 import { BeerCard } from "./";
 import NoItems from "./NoItems";
 
+/**
+ * Component to display a list of beers.
+ * Consider removing the store dependancy and inputing state with props etc.
+ */
+
 const BeersList = () => {
   const filteredBeers = useBeerStore((state) => state.filteredBeers());
   return (

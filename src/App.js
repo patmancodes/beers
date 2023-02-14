@@ -4,9 +4,13 @@ import { Box } from "@mui/material";
 import { Navbar, BeersList, BeerDetails, Progress } from "./components";
 import { useBeerStore } from "./stores/store";
 
+/**
+ * Main app component, fetches data and handles route definitions
+ */
+
 const App = () => {
   const { setBeers, isLoading, setIsLoading } = useBeerStore((state) => ({
-    setBeers: state.setBeers,
+    setBeers: state.setBeers, 
     isLoading: state.isLoading,
     setIsLoading: state.setIsLoading,
   }));

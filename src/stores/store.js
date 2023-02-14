@@ -1,5 +1,9 @@
 import { create } from "zustand";
 
+/**
+ * State store for beers and filtering favorite's
+ */
+
 const useBeerStore = create((set, get) => ({
   beers: [],
   filter: false, // false =>'show all' ;  true  => 'show only favorites..'

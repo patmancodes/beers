@@ -1,8 +1,12 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
-
 import { Typography, Box, Card, CardContent, CardMedia } from "@mui/material";
 import AddToFavoritesButton from "./AddToFavoritesButton";
+
+/**
+ * A card component to display a subset of info about a beer
+ */
 
 const BeerCard = (props) => {
   const { beer } = props;

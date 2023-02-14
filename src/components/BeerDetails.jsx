@@ -4,9 +4,15 @@ import { useBeerStore } from "../stores/store";
 import { Typography, Box, Stack } from "@mui/material";
 import AddToFavoritesButton from "./AddToFavoritesButton";
 
+/**
+ * Beer details component. TODO: Revise styling.
+ */
+
 const BeerDetails = () => {
   const { id } = useParams();
   const beers = useBeerStore((state) => state.beers);
+  
+  // eslint-disable-next-line
   const beer = beers?.find((b) => b.id == id);
 
   return (

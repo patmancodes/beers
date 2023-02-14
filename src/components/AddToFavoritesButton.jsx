@@ -3,6 +3,10 @@ import { IconButton, Tooltip } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useBeerStore } from "../stores/store";
 
+/**
+ * A button to handle the toggling of a beer's "favorite" property in the global state
+ */
+
 const AddToFavoritesButton = (props) => {
   const { beer } = props;
   const toggleFavorite = useBeerStore((state) => state.toggleFavorite);
