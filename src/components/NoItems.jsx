@@ -6,7 +6,7 @@ import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 
 const NoItems = () => {
   const filteredToFavorites = useBeerStore((state) => state.filter);
-  const setFilter = useBeerStore((state) => state.setFilter);  
+  const setFilter = useBeerStore((state) => state.setFilter);
 
   return (
     <Typography
@@ -14,10 +14,16 @@ const NoItems = () => {
       sx={{ mt: "100px", maxWidth: "500px", textAlign: "center" }}
     >
       <HeartBrokenIcon sx={{ fontSize: 70 }} /> <br />
-      No Favourites<br />
+      No Favourites
+      <br />
       <div>
         {filteredToFavorites ? (
-          <Button sx={{mt: '50px'}} variant="outlined" startIcon={<ChevronLeftIcon/>} onClick={()=>setFilter(false)}>
+          <Button
+            sx={{ mt: "50px" }}
+            variant="outlined"
+            startIcon={<ChevronLeftIcon />}
+            onClick={() => setFilter(false)}
+          >
             Show All
           </Button>
         ) : (

@@ -5,7 +5,7 @@ import { Navbar, BeersList, BeerDetails, Progress } from "./components";
 import { useBeerStore } from "./stores/store";
 
 const App = () => {
-  const { setBeers, isLoading, setIsLoading } = useBeerStore((state) => ({
+  const { setBeers, isLoading, setIsLoading } = useBeerStore((state) => ({    
     setBeers: state.setBeers,
     isLoading: state.isLoading,
     setIsLoading: state.setIsLoading,
@@ -32,7 +32,7 @@ const App = () => {
       <Box sx={{ background: "white" }}>
         <Navbar />
         <Routes>
-          <Route path="/beer/:id" element={<BeerDetails />} />
+          <Route path="/beer/:id" element={<BeerDetails  />} />
           <Route path="/" element={isLoading ? <Progress /> : <BeersList />} />
         </Routes>
       </Box>

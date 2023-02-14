@@ -11,11 +11,9 @@ function notificationsLabel(count) {
   return count === 0 ? "no Favorites" : `${count} Favorites`;
 }
 
-const Navbar = (props) => {
-  //const {favoriteCount} = props;
+const Navbar = (props) => {  
   const setFilter = useBeerStore((state) => state.setFilter);
-  const filteredBeerCount = useBeerStore((state) => state.filteredBeerCount());
-  
+  const filteredBeerCount = useBeerStore((state) => state.filteredBeerCount());  
 
   return (
     <Stack

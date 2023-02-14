@@ -11,6 +11,7 @@ import {
   IconButton,
   Tooltip,
 } from "@mui/material";
+import AddToFavoritesButton from "./AddToFavoritesButton";
 
 const BeerCard = (props) => {
   const { beer } = props;
@@ -18,6 +19,7 @@ const BeerCard = (props) => {
   const onFavoriteClick = () => toggleFavorite(beer.id);
 
   return (
+    
     <Card
       sx={{
         width: { xs: "100%", sm: "300px" },
@@ -65,15 +67,7 @@ const BeerCard = (props) => {
         </Link>
       </CardContent>
       <Box sx={{ textAlign: "right" }}>
-        <Tooltip title="Add to Favorites " arrow>
-          <IconButton
-            aria-label="add to Favorites"
-            color={beer?.isFavorite ? "error" : ""}
-            onClick={onFavoriteClick}
-          >
-            <FavoriteIcon />
-          </IconButton>
-        </Tooltip>
+        <AddToFavoritesButton beer={beer} />
       </Box>
     </Card>
   );
