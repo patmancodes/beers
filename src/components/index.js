@@ -4,3 +4,5 @@ export { default as BeerDetails } from "./BeerDetails";
 export { default as BeerCard } from "./BeerCard";
 export { default as Logo } from "./Logo";
 export { default as Progress } from "./Progress";
+export { default as NegativeView } from "./NegativeView";
+export { default as AddToFavoritesButton } from "./AddToFavoritesButton";

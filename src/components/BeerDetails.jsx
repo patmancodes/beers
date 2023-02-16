@@ -11,7 +11,8 @@ import AddToFavoritesButton from "./AddToFavoritesButton";
 const BeerDetails = () => {
   const { id } = useParams();
   const beers = useBeerStore((state) => state.beers);
-  
+  const toggleFavorite = useBeerStore((state) => state.toggleFavorite);
+
   // eslint-disable-next-line
   const beer = beers?.find((b) => b.id == id);
 
@@ -81,8 +82,11 @@ const BeerDetails = () => {
             color="gray"
             sx={{ mt: "20px", textAlign: "right" }}
           >
-            {beer?.isFavorite ? "Remove from" : "Add to"} Favourites{" "}
-            <AddToFavoritesButton beer={beer} />
+            {beer?.isFavorite ? "Remove from" : "Add to"} Favourites{" "}            
+            <AddToFavoritesButton
+              isFavorite={beer?.isFavorite}
+              onClick={() => toggleFavorite(beer.id)}
+            />
           </Typography>
         </Box>
       </Stack>

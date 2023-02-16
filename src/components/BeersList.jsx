@@ -1,16 +1,13 @@
 import React from "react";
-import { useBeerStore } from "../stores/store";
 import { Stack } from "@mui/material";
-import { BeerCard } from "./";
-import NoItems from "./NoItems";
+import { BeerCard, AddToFavoritesButton } from "./";
 
 /**
  * Component to display a list of beers.
- * Consider removing the store dependancy and inputing state with props etc.
  */
 
-const BeersList = () => {
-  const filteredBeers = useBeerStore((state) => state.filteredBeers());
+const BeersList = (props) => {
+  const { beers, negativeView, onToggleFavoriteClicked } = props;
   return (
     <Stack
       direction="row"
@@ -21,10 +18,20 @@ const BeersList = () => {
       gap={2}
       p="20px"
     >
-      {!filteredBeers?.length ? <NoItems /> : null}
+      
+      {!beers?.length ? negativeView : null}
 
-      {filteredBeers?.map((item, idx) => (
-        <BeerCard key={item.id} beer={item} />
+      {beers?.map((item) => (
+        <BeerCard
+          key={item.id}
+          beer={item}
+          actions={
+            <AddToFavoritesButton
+              isFavorite={item.isFavorite}
+              onClick={() => onToggleFavoriteClicked(item.id)}
+            />
+          }
+        />
       ))}
     </Stack>
   );

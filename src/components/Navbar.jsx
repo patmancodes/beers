@@ -52,7 +52,10 @@ const Navbar = (props) => {
           component={Link}
           to="/"
         >
-          <Badge badgeContent={filteredBeerCount} color="error">
+          <Badge
+            badgeContent={filteredBeerCount}
+            color="error"
+          >
             <FavoriteIcon sx={{ color: "black" }} />
           </Badge>
         </IconButton>
