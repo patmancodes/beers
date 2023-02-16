@@ -29,6 +29,7 @@ const Navbar = (props) => {
       backgroundColor="#fff"
       paddingY={2}
       sx={{
+        zIndex: 1,
         position: "sticky",
         top: 0,
         justifyContent: "space-between",

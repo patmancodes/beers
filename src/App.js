@@ -47,7 +47,6 @@ const App = () => {
     fetchData();
   }, []);
 
-
   return (
     <BrowserRouter>
       <Box sx={{ background: "white" }}>
@@ -62,17 +61,16 @@ const App = () => {
               ) : (
                 <BeersList
                   beers={filteredBeers}
-                  negativeView={
-                    <NegativeView
-                      headerText="No Favourites"
-                      actionButtonText="Show All"
-                      actionButtonClick={() => {
-                        setFilter(false);
-                      }}
-                    />
-                  }
-                  onToggleFavoriteClicked={(id)=>toggleFavorite(id)}
-                />
+                  onToggleFavoriteClicked={(id) => toggleFavorite(id)}
+                >
+                  <NegativeView
+                    headerText="No Favourites"
+                    actionButtonText="Show All"
+                    actionButtonClick={() => {
+                      setFilter(false);
+                    }}
+                  />
+                </BeersList>
               )
             }
           />

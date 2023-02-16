@@ -7,7 +7,8 @@ import { BeerCard, AddToFavoritesButton } from "./";
  */
 
 const BeersList = (props) => {
-  const { beers, negativeView, onToggleFavoriteClicked } = props;
+  const { beers, onToggleFavoriteClicked, children } = props;
+
   return (
     <Stack
       direction="row"
@@ -18,20 +19,15 @@ const BeersList = (props) => {
       gap={2}
       p="20px"
     >
-      
-      {!beers?.length ? negativeView : null}
+      {!beers?.length ? children : null}
 
       {beers?.map((item) => (
-        <BeerCard
-          key={item.id}
-          beer={item}
-          actions={
-            <AddToFavoritesButton
-              isFavorite={item.isFavorite}
-              onClick={() => onToggleFavoriteClicked(item.id)}
-            />
-          }
-        />
+        <BeerCard key={item.id} beer={item}>
+          <AddToFavoritesButton
+            isFavorite={item.isFavorite}
+            onClick={() => onToggleFavoriteClicked(item.id)}
+          />
+        </BeerCard>
       ))}
     </Stack>
   );

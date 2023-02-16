@@ -7,7 +7,7 @@ import { Typography, Box, Card, CardContent, CardMedia } from "@mui/material";
  */
 
 const BeerCard = (props) => {
-  const { beer, actions } = props;
+  const { beer, children } = props;
 
   return (
     <Card
@@ -56,7 +56,7 @@ const BeerCard = (props) => {
           </Typography>
         </Link>
       </CardContent>
-      <Box sx={{ textAlign: "right" }}>{actions}</Box>
+      <Box sx={{ textAlign: "right" }}>{children}</Box>
     </Card>
   );
 };

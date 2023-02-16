@@ -82,7 +82,7 @@ const BeerDetails = () => {
             color="gray"
             sx={{ mt: "20px", textAlign: "right" }}
           >
-            {beer?.isFavorite ? "Remove from" : "Add to"} Favourites{" "}            
+            {beer?.isFavorite ? "Remove from" : "Add to"} Favourites{" "}
             <AddToFavoritesButton
               isFavorite={beer?.isFavorite}
               onClick={() => toggleFavorite(beer.id)}
