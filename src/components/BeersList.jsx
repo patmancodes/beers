@@ -19,7 +19,7 @@ const BeersList = (props) => {
       gap={2}
       p="20px"
     >
-      {!beers?.length ? children : null}
+      {!beers?.length && children}
 
       {beers?.map((item) => (
         <BeerCard key={item.id} beer={item}>

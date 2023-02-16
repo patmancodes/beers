@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import {
   NegativeView,
   Navbar,
@@ -8,6 +8,7 @@ import {
   BeerDetails,
   Progress,
 } from "./components";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { useBeerStore } from "./stores/store";
 
 /**
@@ -17,6 +18,7 @@ import { useBeerStore } from "./stores/store";
 const App = () => {
   const {
     filteredBeers,
+    filteredToFavorites,
     setBeers,
     isLoading,
     setIsLoading,
@@ -24,6 +26,7 @@ const App = () => {
     setFilter,
   } = useBeerStore((state) => ({
     filteredBeers: state.filteredBeers(),
+    filteredToFavorites: state.filter,
     setBeers: state.setBeers,
     isLoading: state.isLoading,
     setIsLoading: state.setIsLoading,
@@ -67,9 +70,20 @@ const App = () => {
                     headerText="No Favourites"
                     actionButtonText="Show All"
                     actionButtonClick={() => {
-                      setFilter(false);
+                      
                     }}
-                  />
+                  >
+                    {filteredToFavorites && (
+                      <Button
+                        sx={{ mt: "50px" }}
+                        variant="outlined"
+                        startIcon={<ChevronLeftIcon />}
+                        onClick={()=>setFilter(false)}
+                      >
+                        Show All
+                      </Button>
+                    )}
+                  </NegativeView>
                 </BeersList>
               )
             }
